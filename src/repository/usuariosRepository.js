@@ -57,3 +57,39 @@ export async function consultarUsuarioPorId(id) {
     let registros = resposta[0];
     return registros;
 }
+
+
+export async function alterarUsuario(usuarioNovo, id) {
+        let comando =  `
+            UPDATE usuarios
+            SET   c_nome = ?, 
+                  d_cpf = ?, 
+                  e_celular = ?, 
+                  f_data_nascimento = ?, 
+                  g_endereco = ?, 
+                  h_cidade = ?, 
+                  i_estado = ?, 
+                  j_cep = ?
+            WHERE  id_novoUsuario = ?    
+        `;
+    
+        let resposta = await con.query(comando, [
+            usuarioNovo.nome,
+            usuarioNovo.cpf,
+            usuarioNovo.celular,
+            usuarioNovo.data_nascimento,
+            usuarioNovo.endereco,
+            usuarioNovo.cidade,
+            usuarioNovo.estado,
+            usuarioNovo.cep,
+            id
+        ]);
+    
+        let info = resposta[0];
+    
+        return {
+            linhasAfetadas: info.affectedRows,
+            linhasModificadas: info.changedRows
+        };
+    }
+    

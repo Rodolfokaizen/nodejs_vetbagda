@@ -3,7 +3,7 @@
 export function validarNovoCadastro(cadastroObj) {
 
     if (!cadastroObj.login)
-        throw new Error('Nome do login obrigatório.');
+        throw new Error('Nome do login obrigatório.');  
 
     if (!cadastroObj.senha)
         throw new Error('Senha e obrigatória.');
@@ -13,9 +13,6 @@ export function validarNovoCadastro(cadastroObj) {
 
     if (!(cadastroObj.cpf))
         throw new Error('Cpf e obrigatório.');
-
-    if (isNaN(cadastroObj.cpf))
-        throw new Error('Cpf e Invalido');    
 
     if (!cadastroObj.celular)
         throw new Error('O numero do celular e obrigatório.');
@@ -44,3 +41,4 @@ export function validarNovoCadastroId(registros) {
     if (registros.length == 0)
         throw new Error('Cadastro não encontrado!!');
 }
+
