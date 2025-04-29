@@ -39,3 +39,8 @@ export function validarNovoCadastro(cadastroObj) {
         throw new Error('CEP e Invalido');
 
 }
+
+export function validarNovoCadastroId(registros) {
+    if (registros.length == 0)
+        throw new Error('Cadastro não encontrado!!');
+}

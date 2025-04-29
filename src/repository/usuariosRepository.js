@@ -34,3 +34,26 @@ export async function consultarUsuario(nome) {
         let registros = resposta[0];
         return registros;
 }
+
+
+export async function consultarUsuarioPorId(id) {
+    let comando =  `
+            SELECT   
+                    id_novoUsuario          Id,
+                     c_nome                 Nome, 
+                     d_cpf                  Cpf, 
+                     e_celular              Celular, 
+                     f_data_nascimento      Nascimento, 
+                     g_endereco             Endereço, 
+                     h_cidade               Cidade, 
+                     i_estado               Estado, 
+                     j_cep                  Cep
+               FROM usuarios
+              WHERE   id_novoUsuario = ?    
+               
+    `
+
+    let resposta = await con.query(comando, [id]);
+    let registros = resposta[0];
+    return registros;
+}

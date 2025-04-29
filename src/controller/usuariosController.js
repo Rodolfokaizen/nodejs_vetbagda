@@ -1,5 +1,7 @@
 import novoCadastroService from "../service/usuarios/novoCadastroService.js";
 import consultarUsuarioService from "../service/usuarios/consultarUsuarioService.js";
+import consultarUsuarioPorIdService from "../service/usuarios/consultarUsuarioPorIdService.js"
+
 import { Router } from "express";
 const endpoints = Router();
 
@@ -35,4 +37,19 @@ endpoints.get('/cadastro', async(req, resp) => {
       }
 })
 
+
+endpoints.get('/cadastro/:id', async (req, resp) => {
+      try {
+          let id = req.params.id;  
+
+          let cadastro = await consultarUsuarioPorIdService(id);
+
+          resp.send(cadastro);
+
+      } 
+      catch (err) {
+            logErro(err);
+            resp.status(400).send(criarErro(err));
+      }
+})
 export default endpoints;
