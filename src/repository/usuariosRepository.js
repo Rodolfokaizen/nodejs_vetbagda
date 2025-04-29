@@ -92,4 +92,17 @@ export async function alterarUsuario(usuarioNovo, id) {
             linhasModificadas: info.changedRows
         };
     }
+   
     
+    export async function deletarUsuario(id) {
+        let comando = `
+        DELETE FROM usuarios WHERE id_novoUsuario = ?
+        
+        `
+        let resposta = await con.query(comando, [id]);
+        let info = resposta[0];
+        
+        let linhasAfetadas = info.affectedRows;
+        return linhasAfetadas;
+        
+    }
