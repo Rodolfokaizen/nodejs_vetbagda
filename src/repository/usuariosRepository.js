@@ -12,3 +12,25 @@ export async function salvarUsuarioNovo(usuarioNovo) {
     let idUsuarioNovo = info.insertId;
     return idUsuarioNovo;
 }
+
+export async function consultarUsuario(nome) {
+        let comando =  `
+                SELECT   
+                        id_novoUsuario          Id,
+                         c_nome                 Nome, 
+                         d_cpf                  Cpf, 
+                         e_celular              Celular, 
+                         f_data_nascimento      Nascimento, 
+                         g_endereco             Endereço, 
+                         h_cidade               Cidade, 
+                         i_estado               Estado, 
+                         j_cep                  Cep
+                   FROM usuarios
+                  WHERE   c_nome like ?    
+                   
+        `
+
+        let resposta = await con.query(comando, ['%' + nome + '%']);
+        let registros = resposta[0];
+        return registros;
+}
