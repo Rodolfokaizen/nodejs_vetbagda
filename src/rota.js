@@ -1,7 +1,7 @@
- import usuarioController from './controller/usuariosController.js';
+import usuarioController from './controller/usuariosController.js';
 
 
-
- export default function adicionarRotas(servidor) {
-    servidor.use(usuarioController);
- }
+export default function adicionarRotas(servidor) {
+   servidor.use(usuarioController);
+   
+}

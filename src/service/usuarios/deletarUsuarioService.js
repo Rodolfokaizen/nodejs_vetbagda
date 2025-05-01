@@ -8,4 +8,3 @@ export default async function deletarUsuarioSerice(id) {
         throw new Error('Nenhum Usuario foi removido.');
     
 }
-

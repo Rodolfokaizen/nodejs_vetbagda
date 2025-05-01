@@ -13,6 +13,21 @@ export async function salvarUsuarioNovo(usuarioNovo) {
     return idUsuarioNovo;
 }
 
+
+//aki novo
+export async function salvarUsuarioNovoParaDogs(usuarioNovo) {
+    let comando = `
+        INSERT INTO usuarios (c_nome, d_cpf, e_celular, f_data_nascimento, g_endereco, h_cidade, i_estado, j_cep)
+				VALUES (?,?,?,?,?,?,?,?)
+    `
+    let resposta = await con.query(comando, [usuarioNovo.nome, usuarioNovo.cpf, usuarioNovo.celular, usuarioNovo.data_nascimento, usuarioNovo.endereco, usuarioNovo.cidade, usuarioNovo.estado, usuarioNovo.cep]);
+    let info = resposta[0];
+
+    let idUsuarioNovo = info.insertId;
+    return idUsuarioNovo;
+}
+
+
 export async function consultarUsuario(nome) {
         let comando =  `
                 SELECT   
