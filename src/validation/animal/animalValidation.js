@@ -16,3 +16,4 @@ export function validarNovoCadastroAnimal(cadastroObjAnimal) {
         throw new Error('O sexo e obrigatório.');
 
 }
+

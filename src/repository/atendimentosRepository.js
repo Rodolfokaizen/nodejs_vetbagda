@@ -7,7 +7,7 @@ export async function salvarNovoAtendimento(atendimento) {
         VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
 
-    const resposta = await con.query(comando, [
+    const [info] = await con.query(comando, [
         atendimento.id_animal,
         atendimento.id_usuario,
         atendimento.descricao,
@@ -17,5 +17,5 @@ export async function salvarNovoAtendimento(atendimento) {
         atendimento.preco
     ]);
 
-    return resposta.insertId;
+    return info.insertId;
 }

@@ -3,6 +3,8 @@ import novoCadastroAtendimentoService from "../service/atendimentos/novoAtendime
 
 const endpoints = Router();
 
+
+//ok
 endpoints.post('/cadastroAtendimento', async (req, resp) => {
     try {
         const atendimento = req.body;

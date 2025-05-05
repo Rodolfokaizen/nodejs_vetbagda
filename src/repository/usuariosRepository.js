@@ -28,7 +28,7 @@ export async function salvarUsuarioNovoParaDogs(usuarioNovo) {
 }
 
 
-export async function consultarUsuario(nome) {
+export async function consultarUsuario() {
         let comando =  `
                 SELECT   
                         id_novoUsuario          Id,
@@ -40,14 +40,13 @@ export async function consultarUsuario(nome) {
                          h_cidade               Cidade, 
                          i_estado               Estado, 
                          j_cep                  Cep
-                   FROM usuarios
-                  WHERE   c_nome like ?    
+                       FROM usuarios
+                      
                    
         `
 
-        let resposta = await con.query(comando, ['%' + nome + '%']);
-        let registros = resposta[0];
-        return registros;
+        let resposta = await con.query(comando);
+        return resposta[0];
 }
 
 
