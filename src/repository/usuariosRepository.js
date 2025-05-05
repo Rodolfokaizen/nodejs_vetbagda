@@ -1,6 +1,5 @@
 import con from './connection.js';
 
-
 export async function salvarUsuarioNovo(usuarioNovo) {
     let comando = `
         INSERT INTO usuarios (a_login, b_senha, c_nome, d_cpf, e_celular, f_data_nascimento, g_endereco, h_cidade, i_estado, j_cep)
@@ -12,7 +11,6 @@ export async function salvarUsuarioNovo(usuarioNovo) {
     let idUsuarioNovo = info.insertId;
     return idUsuarioNovo;
 }
-
 
 //aki novo
 export async function salvarUsuarioNovoParaDogs(usuarioNovo) {
@@ -27,7 +25,6 @@ export async function salvarUsuarioNovoParaDogs(usuarioNovo) {
     return idUsuarioNovo;
 }
 
-
 export async function consultarUsuario() {
         let comando =  `
                 SELECT   
@@ -41,14 +38,12 @@ export async function consultarUsuario() {
                          i_estado               Estado, 
                          j_cep                  Cep
                        FROM usuarios
-                      
-                   
+                                        
         `
 
         let resposta = await con.query(comando);
         return resposta[0];
 }
-
 
 export async function consultarUsuarioPorId(id) {
     let comando =  `
@@ -67,9 +62,9 @@ export async function consultarUsuarioPorId(id) {
                
     `
 
-    let resposta = await con.query(comando, [id]);
-    let registros = resposta[0];
-    return registros;
+                let resposta = await con.query(comando, [id]);
+                let registros = resposta[0];
+                return registros;
 }
 
 
@@ -106,8 +101,7 @@ export async function alterarUsuario(usuarioNovo, id) {
             linhasModificadas: info.changedRows
         };
     }
-   
-    
+     
     export async function deletarUsuario(id) {
         let comando = `
         DELETE FROM usuarios WHERE id_novoUsuario = ?
@@ -118,5 +112,4 @@ export async function alterarUsuario(usuarioNovo, id) {
         
         let linhasAfetadas = info.affectedRows;
         return linhasAfetadas;
-        
-    }
+ }

@@ -68,7 +68,4 @@ endpoints.put('/cadastroAnimal/:id', async (req, resp) => {
       }
     });
     
-    
-
-
 export default endpoints;

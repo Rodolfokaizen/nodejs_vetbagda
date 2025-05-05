@@ -1,6 +1,5 @@
 import { horaAtual } from "./datetime.js";
 
-
 global.criarErro = function criarErro(err) {
     let obj = {
         erro: err.message
@@ -8,7 +7,6 @@ global.criarErro = function criarErro(err) {
 
     return obj;
 }
-
 
 global.logErro = function logError(err) {
     console.log(horaAtual() + ' ERRO ==> ' + err.message);

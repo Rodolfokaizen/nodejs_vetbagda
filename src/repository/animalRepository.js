@@ -28,18 +28,13 @@ export async function consultarAnimal() {
                    data_nascimento         nascimento,
                    sexo                    sexo 
                 FROM animais
-             
-             
+                       
   `
-
-          
-
             let [registros] = await con.query(comando);
             console.log(registros);
             return registros;
 
 }
-
 
 export async function atualizarAnimal(id, dados) {
   let comando = `
@@ -50,20 +45,20 @@ export async function atualizarAnimal(id, dados) {
                         data_nascimento = ?, 
                         sexo = ?
                       WHERE id_novoAnimal = ?
-          `
+        `
   ;
 
-  let parametros = [
-    dados.nome,
-    dados.deficiencias,
-    dados.intolerancias,
-    dados.data_nascimento,
-    dados.sexo,
-    id
-  ];
+              let parametros = [
+                dados.nome,
+                dados.deficiencias,
+                dados.intolerancias,
+                dados.data_nascimento,
+                dados.sexo,
+                id
+              ];
 
-  let resposta = await con.query(comando, parametros);
-  return resposta[0].affectedRows;
+            let resposta = await con.query(comando, parametros);
+            return resposta[0].affectedRows;
 }
 
 export async function deletarAnimal(id) {
@@ -71,7 +66,6 @@ export async function deletarAnimal(id) {
                 DELETE FROM animais
                 WHERE  id_novoAnimal = ?
               `
-  
   ;
 
   let resposta = await con.query(comando, [id]);

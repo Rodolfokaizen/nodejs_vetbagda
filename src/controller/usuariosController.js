@@ -5,11 +5,8 @@ import consultarUsuarioPorIdService from "../service/usuarios/consultarUsuarioPo
 import alterarUsuarioService from "../service/usuarios/alterarUsuarioService.js";
 import deletarUsuarioSerice from "../service/usuarios/deletarUsuarioService.js";
 
-
-
 import { Router } from "express";
 const endpoints = Router();
-
 
 //OK
 endpoints.post('/cadastro', async (req, resp) => {
@@ -28,7 +25,6 @@ endpoints.post('/cadastro', async (req, resp) => {
     }
    
 })
-
 
 //ok
 endpoints.post('/cadastro/usuario', async (req, resp) => {
@@ -110,9 +106,5 @@ endpoints.delete('/cadastro/:id', async (req, resp) => {
          }
          
     })
-
-    
-    
-
 
 export default endpoints;

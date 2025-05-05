@@ -6,7 +6,6 @@ import cors from 'cors';
 
 import adicionarRotas from './rota.js';
 
-
 const servidor = express();
 servidor.use(cors());
 servidor.use(express.json());

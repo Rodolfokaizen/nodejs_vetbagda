@@ -1,5 +1,3 @@
-
-
 export function validarNovoCadastro(cadastroObj) {
 
     if (!cadastroObj.login)
@@ -69,11 +67,7 @@ export function validarNovoCadastroUsuario(cadastroObj) {
 
 }
 
-
-
-
 export function validarNovoCadastroId(registros) {
     if (registros.length == 0)
         throw new Error('Cadastro não encontrado!!');
 }
-

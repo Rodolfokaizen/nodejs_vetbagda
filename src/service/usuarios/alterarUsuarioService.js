@@ -1,7 +1,5 @@
 import { alterarUsuario } from "../../repository/usuariosRepository.js";
 
-
-
 export default async function alterarUsuarioService(cadastroObj, id) {
     let resultado = await alterarUsuario(cadastroObj, id);
 
