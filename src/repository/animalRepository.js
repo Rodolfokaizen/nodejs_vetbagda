@@ -6,7 +6,7 @@ export async function salvarUsuarioNovoAnimal(usuarioNovoAnimal) {
                 VALUES (?,?,?,?,?,?)
     `
 
-    console.log(usuarioNovoAnimal)
+
 
     let resposta = await con.query(comando, [
       usuarioNovoAnimal.id_usuario, 

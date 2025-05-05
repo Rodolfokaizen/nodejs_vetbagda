@@ -28,7 +28,7 @@ endpoints.post('/cadastro', async (req, resp) => {
    
 })
 
-//aki novo
+
 
 endpoints.post('/cadastro/usuario', async (req, resp) => {
       try {
